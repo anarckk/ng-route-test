@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { interval, Observable, OperatorFunction, PartialObserver, Subject } from 'rxjs';
-import { finalize, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { delay, finalize, mergeMap, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-merge-map',
@@ -22,6 +22,7 @@ export class MergeMapComponent implements OnInit, OnDestroy {
       o2oRxOpLog('通过mergeMap前'),
       mergeMap(() => interval(1000)),
       o2oRxOpLog('通过mergeMap后'),
+      delay(1000),
       takeUntil(this.stop$)
     ).subscribe();
   }

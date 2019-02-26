@@ -11,6 +11,8 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { MergeMapComponent } from './merge-map/merge-map.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ResolveDataComponent } from './resolve-data/resolve-data.component';
+import { ResolveDataService } from './resolve-data.service';
 
 registerLocaleData(zh);
 
@@ -18,7 +20,8 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     MergeMapComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ResolveDataComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,11 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [
+    {provide: NZ_I18N, useValue: zh_CN},
+    ResolveDataService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
