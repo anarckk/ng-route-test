@@ -11,6 +11,7 @@ export class DataListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('data-list ng init.');
   }
 
 }
