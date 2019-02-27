@@ -9,31 +9,30 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { MergeMapComponent } from './merge-map/merge-map.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ResolveDataComponent } from './resolve-data/resolve-data.component';
-import { ResolveDataService } from './resolve-data.service';
+import { RoutesModule } from './routes/routes.module';
+import { RouteReuseStrategy } from '@angular/router';
+import { SimpleRouteReuseStrategy } from './simple-route-reuse-strategy';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
-    MergeMapComponent,
     PageNotFoundComponent,
-    ResolveDataComponent
   ],
   imports: [
     BrowserModule,
+    RoutesModule,
     AppRoutingModule,
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     {provide: NZ_I18N, useValue: zh_CN},
-    ResolveDataService
+    {provide: RouteReuseStrategy, useClass: SimpleRouteReuseStrategy}
   ],
   bootstrap: [AppComponent]
 })

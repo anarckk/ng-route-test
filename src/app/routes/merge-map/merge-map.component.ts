@@ -8,7 +8,6 @@ import { delay, finalize, mergeMap, takeUntil, tap } from 'rxjs/operators';
   styleUrls: ['./merge-map.component.css'],
   host: {
     '[class.d-block]': 'true',
-    '[class.p-md]': 'true'
   }
 })
 export class MergeMapComponent implements OnInit, OnDestroy {

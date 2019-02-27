@@ -1,10 +1,9 @@
-<nz-layout>
-  <nz-header>
-    <button nz-button [routerLink]="'/merge-map'">mergeMap测试组件</button>
-    <button nz-button [routerLink]="'/resolve-data'">resolve-data</button>
-    <button nz-button [routerLink]="'/page-not-found'">pageNotFound</button>
-  </nz-header>
-  <nz-content>
-    <router-outlet></router-outlet>
-  </nz-content>
-</nz-layout>
+<nav class="p-md">
+  <button nz-button [routerLink]="'/merge-map'">mergeMap测试组件</button>
+  <button nz-button [routerLink]="'/resolve-data'">resolve-data</button>
+  <button nz-button [routerLink]="'/data-list'">data-list</button>
+  <button nz-button [routerLink]="'/page-not-found'">pageNotFound</button>
+</nav>
+<div class="router-outlet-primary p-md">
+  <router-outlet></router-outlet>
+</div>
