@@ -19,7 +19,18 @@ export class AppComponent {
   clear() {
     const cache = (<SimpleRouteReuseStrategy>this.routeReuseStrategy)._cacheRouters;
     for (let key in cache) {
-      cache[key].handle.componentRef.destroy();
+      try {
+        cache[key].handle.componentRef.destroy();
+      } catch (e) {
+        // empty
+      }
+    }
+  }
+
+  look() {
+    const cache = (<SimpleRouteReuseStrategy>this.routeReuseStrategy)._cacheRouters;
+    for (let key in cache) {
+      console.log(cache[key].handle.componentRef);
     }
   }
 }
