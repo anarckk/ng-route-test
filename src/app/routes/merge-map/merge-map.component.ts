@@ -17,6 +17,7 @@ export class MergeMapComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
+    console.log('merge-map ng init.');
     this.click$.pipe(
       o2oRxOpLog('通过mergeMap前'),
       mergeMap(() => interval(1000)),
@@ -27,6 +28,7 @@ export class MergeMapComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    console.log('merge-map ng destroy.');
     this.stop$.complete();
     this.click$.complete();
   }

@@ -20,7 +20,10 @@ const routes: Routes = [
   },
   {
     path: 'data-list',
-    component: DataListComponent
+    component: DataListComponent,
+    data: {
+      reuse: true
+    }
   },
   {
     path: 'data-detail/:index',
