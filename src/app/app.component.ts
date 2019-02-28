@@ -21,6 +21,8 @@ export class AppComponent {
     for (let key in cache) {
       try {
         cache[key].handle.componentRef.destroy();
+        delete cache[key];
+        console.log('清理:', key);
       } catch (e) {
         // empty
       }
@@ -29,8 +31,6 @@ export class AppComponent {
 
   look() {
     const cache = (<SimpleRouteReuseStrategy>this.routeReuseStrategy)._cacheRouters;
-    for (let key in cache) {
-      console.log(cache[key].handle.componentRef);
-    }
+    console.log(cache);
   }
 }

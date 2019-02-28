@@ -49,6 +49,7 @@ export class DataListComponent implements OnInit, OnDestroy, AfterViewChecked, R
   }
 
   scroll() {
+    // empty
   }
 
   getValue() {

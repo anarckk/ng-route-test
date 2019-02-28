@@ -17,12 +17,14 @@ export class DataDetailComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    console.log('data-detail init.');
     this.sub = this.route.paramMap.pipe(o2oRxOpLog('route.paramMap')).subscribe((params: ParamMap) => {
       this.i = params.get('index');
     });
   }
 
   ngOnDestroy(): void {
+    console.log('data-detail destroy.');
     this.sub.unsubscribe();
   }
 }

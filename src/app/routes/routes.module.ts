@@ -27,7 +27,10 @@ const routes: Routes = [
   },
   {
     path: 'data-detail/:index',
-    component: DataDetailComponent
+    component: DataDetailComponent,
+    data: {
+      reuse: true
+    }
   },
   {path: '', redirectTo: 'merge-map', pathMatch: 'full'},
 ];
