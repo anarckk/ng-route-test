@@ -52,12 +52,6 @@ export class DataListComponent implements OnInit, OnDestroy, AfterViewChecked, R
     // empty
   }
 
-  getValue() {
-    return {
-      scrollTop: this.scrollTop
-    };
-  }
-
   setValue(value) {
     this.scrollTop = value.scrollTop;
   }
