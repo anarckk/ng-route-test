@@ -7,3 +7,8 @@ nav {
   overflow: auto;
   border-bottom: 1px solid #b1b1b1;
 }
+
+.router-outlet-second {
+  height: 200px;
+  border-bottom: 1px solid #b1b1b1;
+}

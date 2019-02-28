@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RoutesModule } from './routes/routes.module';
 import { RouteReuseStrategy } from '@angular/router';
 import { SimpleRouteReuseStrategy } from './simple-route-reuse-strategy';
+import { SecondRouterCompComponent } from './routes2/second-router-comp/second-router-comp.component';
 
 registerLocaleData(zh);
 
@@ -20,6 +21,7 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    SecondRouterCompComponent,
   ],
   imports: [
     BrowserModule,
