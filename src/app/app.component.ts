@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouteReuseStrategy } from '@angular/router';
+import { Router, RouteReuseStrategy } from '@angular/router';
 import { SimpleRouteReuseStrategy } from './simple-route-reuse-strategy';
 
 @Component({
@@ -10,6 +10,7 @@ import { SimpleRouteReuseStrategy } from './simple-route-reuse-strategy';
 export class AppComponent {
   constructor(
     private routeReuseStrategy: RouteReuseStrategy,
+    private router: Router,
   ) {
   }
 
@@ -32,5 +33,11 @@ export class AppComponent {
   look() {
     const cache = (<SimpleRouteReuseStrategy>this.routeReuseStrategy)._cacheRouters;
     console.log(cache);
+  }
+
+  clearSecond() {
+    // Providing a `null` value to the named outlet
+    // clears the contents of the named outlet
+    this.router.navigate([{outlets: {second: null}}]);
   }
 }

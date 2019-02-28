@@ -7,7 +7,9 @@ import { ResolveData } from './resolve-data';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ResolveDataService implements Resolve<ResolveData> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ResolveData> | Promise<ResolveData> | ResolveData {
     console.log('路由数据预加载', route, state);

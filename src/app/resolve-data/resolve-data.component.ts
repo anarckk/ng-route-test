@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { o2oRxOpLog } from '../merge-map/merge-map.component';
 import { Subscription } from 'rxjs';
-import { ResolveData } from '../../resolve-data';
+import { ResolveData } from '../resolve-data';
 
 @Component({
   selector: 'app-resolve-data',

@@ -1,0 +1,17 @@
+.container {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+
+.info {
+  position: absolute;
+  top: 0;
+  right: 30px;
+}
+
+:host {
+  position: relative;
+  display: block;
+  height: 100%;
+}

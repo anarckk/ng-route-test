@@ -7,7 +7,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import { ReuseComponentInterface } from '../../reuse-component.interface';
+import { ReuseComponentInterface } from '../reuse-component.interface';
 
 @Component({
   selector: 'app-data-list',

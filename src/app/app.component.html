@@ -9,7 +9,9 @@
   </div>
   <div>
     <button nz-button [routerLink]="[{ outlets: { second: ['comp'] } }]">second</button>
-    <button nz-button [routerLink]="[{ outlets: { second: null } }]">null</button>
+    <button nz-button [routerLink]="[{ outlets: { second: ['lazy-comp'] } }]">lazy-comp</button>
+    <button nz-button [routerLink]="[{ outlets: { second: ['data-list2'] } }]">data-list</button>
+    <button nz-button (click)="clearSecond()">null</button>
   </div>
 </nav>
 <div class="router-outlet-primary p-md">
