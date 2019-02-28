@@ -4,7 +4,7 @@
 import { ActivatedRouteSnapshot, DetachedRouteHandle, RouteReuseStrategy } from '@angular/router';
 
 export class SimpleRouteReuseStrategy implements RouteReuseStrategy {
-  private _cacheRouters: { [key: string]: any } = {};
+  _cacheRouters: { [key: string]: any } = {};
 
   /**
    * 是不是应该在离开的时候存一下路由状态
