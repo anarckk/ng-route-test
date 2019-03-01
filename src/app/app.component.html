@@ -12,6 +12,9 @@
     <button nz-button [routerLink]="[{ outlets: { second: ['lazy-comp'] } }]">lazy-comp</button>
     <button nz-button [routerLink]="[{ outlets: { second: ['data-list2'] } }]">data-list</button>
     <button nz-button (click)="clearSecond()">null</button>
+    <span class="mx-sm">第三重路由</span>
+    <button nz-button [routerLink]="[{ outlets: { third: ['index'] } }]">index</button>
+    <button nz-button [routerLink]="[{ outlets: { third: null } }]">null</button>
   </div>
 </nav>
 <div class="router-outlet-primary p-md">
@@ -19,4 +22,7 @@
 </div>
 <div class="router-outlet-second p-md">
   <router-outlet name="second"></router-outlet>
+</div>
+<div class="router-outlet-second p-md">
+  <router-outlet name="third"></router-outlet>
 </div>

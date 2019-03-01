@@ -33,7 +33,6 @@ const routes: Routes = [
       reuse: true
     }
   },
-  {path: '', redirectTo: 'merge-map', pathMatch: 'full'},
   {path: 'comp', component: SecondRouterCompComponent, outlet: 'second'},
   {path: 'lazy-comp', loadChildren: './routes2/lazy-routes/lazy-routes.module#LazyRoutesModule', outlet: 'second'},
   {
@@ -50,6 +49,8 @@ const routes: Routes = [
       reuse: true
     }, outlet: 'second'
   },
+  {path: 'index', loadChildren: './third-routes/third-routes.module#ThirdRoutesModule', outlet: 'third'},
+  {path: '', redirectTo: 'merge-map', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
 ];
 
