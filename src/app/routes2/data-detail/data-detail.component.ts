@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { o2oRxOpLog } from '../../merge-map/merge-map.component';
 
@@ -13,7 +13,8 @@ export class DataDetail2Component implements OnInit, OnDestroy {
   private sub: Subscription;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -26,5 +27,9 @@ export class DataDetail2Component implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     console.log('data-detail2 destroy.');
     this.sub.unsubscribe();
+  }
+
+  back() {
+    this.router.navigate([{outlets: {second: 'data-list2'}}]);
   }
 }
