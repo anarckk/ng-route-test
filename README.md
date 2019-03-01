@@ -1,6 +1,6 @@
 # ng-route-test
 
-对 ng route 的特性进行测试, [demo](https://anarckk.github.io/ng-route-test/page)
+对 ng route 的特性进行测试 [demo](https://anarckk.github.io/ng-route-test/page)
 
 ## 需要测试
 
