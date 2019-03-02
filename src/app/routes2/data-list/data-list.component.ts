@@ -10,7 +10,7 @@ import {
 import { ReuseComponentInterface } from '../../reuse-component.interface';
 
 @Component({
-  selector: 'app-data-list',
+  selector: 'app-data-list2',
   templateUrl: './data-list.component.html',
   styleUrls: ['./data-list.component.css'],
 })

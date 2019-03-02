@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { o2oRxOpLog } from '../../merge-map/merge-map.component';
 
 @Component({
-  selector: 'app-data-detail',
+  selector: 'app-data-detail2',
   templateUrl: './data-detail.component.html',
   styleUrls: ['./data-detail.component.css']
 })

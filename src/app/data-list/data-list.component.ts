@@ -8,6 +8,9 @@ import {
   ViewChild
 } from '@angular/core';
 import { ReuseComponentInterface } from '../reuse-component.interface';
+import { InputData } from './input-data';
+import { DataDetailResolverService } from '../data-detail/data-detail-resolver.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-data-list',
@@ -15,13 +18,19 @@ import { ReuseComponentInterface } from '../reuse-component.interface';
   styleUrls: ['./data-list.component.css'],
 })
 export class DataListComponent implements OnInit, OnDestroy, AfterViewChecked, ReuseComponentInterface<number> {
-  array = new Array(100).fill(0);
-  @ViewChild('container') containerRef: ElementRef<HTMLDivElement>;
+  array: InputData[];
+  @ViewChild('container') private containerRef: ElementRef<HTMLDivElement>;
   private retrieveData;
 
   constructor(
     private cd: ChangeDetectorRef,
-  ) { }
+    private dataDetailResolverService: DataDetailResolverService,
+  ) {
+    this.array = new Array(100).fill(null).map<InputData>((v, i) => {
+      return {inputValue: i + ''};
+    });
+    this.dataDetailResolverService.dataOb$ = of(this.array);
+  }
 
   get scrollTop(): number {
     return this.containerRef && this.containerRef.nativeElement.scrollTop;

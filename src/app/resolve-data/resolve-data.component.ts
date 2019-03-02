@@ -19,8 +19,10 @@ export class ResolveDataComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log('resolve data component init');
-    this.sub = this.route.data.pipe(o2oRxOpLog('resolve-data')).subscribe((data: ResolveData) => {
-      this.a = data.a;
+    this.sub = this.route.data.pipe(o2oRxOpLog('resolve-data')).subscribe((data: {
+      data: ResolveData
+    }) => {
+      this.a = data.data.a;
     });
   }
 

@@ -9,6 +9,7 @@ import { ResolveDataComponent } from './resolve-data/resolve-data.component';
 import { ResolveDataService } from './resolve-data.service';
 import { DataList2Component } from './routes2/data-list/data-list.component';
 import { DataDetail2Component } from './routes2/data-detail/data-detail.component';
+import { DataDetailResolverService } from './data-detail/data-detail-resolver.service';
 
 const routes: Routes = [
   {path: 'merge-map', component: MergeMapComponent},
@@ -17,6 +18,9 @@ const routes: Routes = [
     component: ResolveDataComponent,
     resolve: {
       data: ResolveDataService
+    },
+    data: {
+      reuse: true
     }
   },
   {
@@ -29,6 +33,9 @@ const routes: Routes = [
   {
     path: 'data-detail/:index',
     component: DataDetailComponent,
+    resolve: {
+      detail: DataDetailResolverService
+    },
     data: {
       reuse: true
     }
