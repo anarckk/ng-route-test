@@ -20,6 +20,7 @@ import { DataDetailComponent } from './data-detail/data-detail.component';
 import { DataList2Component } from './routes2/data-list/data-list.component';
 import { DataDetail2Component } from './routes2/data-detail/data-detail.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 registerLocaleData(zh);
 
@@ -43,6 +44,7 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    DragDropModule,
   ],
   providers: [
     {provide: NZ_I18N, useValue: zh_CN},

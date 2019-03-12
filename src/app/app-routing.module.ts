@@ -10,6 +10,7 @@ import { ResolveDataService } from './resolve-data.service';
 import { DataList2Component } from './routes2/data-list/data-list.component';
 import { DataDetail2Component } from './routes2/data-detail/data-detail.component';
 import { DataDetailResolverService } from './data-detail/data-detail-resolver.service';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
 
 const routes: Routes = [
   {path: 'merge-map', component: MergeMapComponent},
@@ -39,6 +40,10 @@ const routes: Routes = [
     data: {
       reuse: true
     }
+  },
+  {
+    path: 'drag',
+    component: DragDropComponent
   },
   {path: 'comp', component: SecondRouterCompComponent, outlet: 'second'},
   {path: 'lazy-comp', loadChildren: './routes2/lazy-routes/lazy-routes.module#LazyRoutesModule', outlet: 'second'},
