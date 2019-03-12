@@ -19,6 +19,7 @@ import { DataListComponent } from './data-list/data-list.component';
 import { DataDetailComponent } from './data-detail/data-detail.component';
 import { DataList2Component } from './routes2/data-list/data-list.component';
 import { DataDetail2Component } from './routes2/data-detail/data-detail.component';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
 
 registerLocaleData(zh);
 
@@ -33,6 +34,7 @@ registerLocaleData(zh);
     DataDetailComponent,
     DataList2Component,
     DataDetail2Component,
+    DragDropComponent,
   ],
   imports: [
     BrowserModule,
