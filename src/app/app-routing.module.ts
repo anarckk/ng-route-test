@@ -45,6 +45,10 @@ const routes: Routes = [
     path: 'drag',
     component: DragDropComponent
   },
+  {
+    path: 'lazy-module',
+    loadChildren: './lazy-module/lazy-module.module#LazyModuleModule'
+  },
   {path: 'comp', component: SecondRouterCompComponent, outlet: 'second'},
   {path: 'lazy-comp', loadChildren: './routes2/lazy-routes/lazy-routes.module#LazyRoutesModule', outlet: 'second'},
   {

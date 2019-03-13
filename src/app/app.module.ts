@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -21,6 +20,7 @@ import { DataList2Component } from './routes2/data-list/data-list.component';
 import { DataDetail2Component } from './routes2/data-detail/data-detail.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FormsModule } from '@angular/forms';
 
 registerLocaleData(zh);
 
@@ -40,11 +40,10 @@ registerLocaleData(zh);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgZorroAntdModule,
-    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     DragDropModule,
+    FormsModule,
   ],
   providers: [
     {provide: NZ_I18N, useValue: zh_CN},

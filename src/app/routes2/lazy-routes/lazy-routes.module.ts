@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { LazyCompComponent } from './lazy-comp/lazy-comp.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from '../../shared/shared.module';
 
 const routes: Routes = [
   {path: '', component: LazyCompComponent}
@@ -12,7 +12,7 @@ const routes: Routes = [
   declarations: [LazyCompComponent],
   imports: [
     CommonModule,
-    NgZorroAntdModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
   exports: [
