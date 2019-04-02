@@ -3,12 +3,12 @@ nav {
 }
 
 .router-outlet-primary {
-  height: 500px;
+  height: 380px;
   overflow: auto;
   border-bottom: 1px solid #b1b1b1;
 }
 
 .router-outlet-second {
-  height: 500px;
+  height: 380px;
   border-bottom: 1px solid #b1b1b1;
 }

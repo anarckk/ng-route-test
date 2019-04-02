@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SecondRouterCompComponent } from './routes2/second-router-comp/second-router-comp.component';
-import { DataListComponent } from './data-list/data-list.component';
-import { DataDetailComponent } from './data-detail/data-detail.component';
-import { MergeMapComponent } from './merge-map/merge-map.component';
-import { ResolveDataComponent } from './resolve-data/resolve-data.component';
-import { ResolveDataService } from './resolve-data.service';
-import { DataList2Component } from './routes2/data-list/data-list.component';
-import { DataDetail2Component } from './routes2/data-detail/data-detail.component';
-import { DataDetailResolverService } from './data-detail/data-detail-resolver.service';
-import { DragDropComponent } from './drag-drop/drag-drop.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {SecondRouterCompComponent} from './routes2/second-router-comp/second-router-comp.component';
+import {DataListComponent} from './data-list/data-list.component';
+import {DataDetailComponent} from './data-detail/data-detail.component';
+import {MergeMapComponent} from './merge-map/merge-map.component';
+import {ResolveDataComponent} from './resolve-data/resolve-data.component';
+import {ResolveDataService} from './resolve-data.service';
+import {DataList2Component} from './routes2/data-list/data-list.component';
+import {DataDetail2Component} from './routes2/data-detail/data-detail.component';
+import {DataDetailResolverService} from './data-detail/data-detail-resolver.service';
+import {DragDropComponent} from './drag-drop/drag-drop.component';
 
 const routes: Routes = [
   {path: 'merge-map', component: MergeMapComponent},
@@ -71,7 +71,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes, {useHash: true, scrollPositionRestoration: 'disabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
