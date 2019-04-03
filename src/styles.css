@@ -302,3 +302,7 @@
 .d-block {
   display: block;
 }
+
+body {
+  margin: 0;
+}

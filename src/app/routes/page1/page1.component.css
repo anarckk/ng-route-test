@@ -1,0 +1,17 @@
+nav {
+  border-bottom: 1px solid #b1b1b1;
+}
+
+.router-outlet-primary {
+  max-height: 500px;
+  margin-right: 200px !important;
+  overflow: auto;
+  border-bottom: 1px solid #b1b1b1;
+}
+
+.router-outlet-second {
+  max-height: 500px;
+  margin-right: 200px !important;
+  border-bottom: 1px solid #b1b1b1;
+  overflow: auto;
+}

@@ -1,0 +1,30 @@
+<nav class="p-md">
+  <div class="mb-sm">
+    <button [routerLink]="'merge-map'">mergeMap测试组件</button>
+    <button [routerLink]="'resolve-data'">resolve-data</button>
+    <button [routerLink]="'data-list'">data-list</button>
+    <button [routerLink]="'drag'">withLatestFrom测试</button>
+    <button [routerLink]="'lazy-module'">lazy-module</button>
+    <button [routerLink]="'page-not-found'">pageNotFound</button>
+    <button (click)="clear()">清理缓存</button>
+    <button (click)="look()">查看cache</button>
+  </div>
+  <div>
+    <button [routerLink]="[{ outlets: { second: ['comp'] } }]">second</button>
+    <button [routerLink]="[{ outlets: { second: ['lazy-comp'] } }]">lazy-comp</button>
+    <button [routerLink]="[{ outlets: { second: ['data-list2'] } }]">data-list</button>
+    <button [routerLink]="[{ outlets: { second: null } }]">null</button>
+    <span class="mx-sm">第三重路由</span>
+    <button [routerLink]="[{ outlets: { third: ['index'] } }]">index</button>
+    <button [routerLink]="[{ outlets: { third: null } }]">null</button>
+  </div>
+</nav>
+<div class="router-outlet-primary p-md">
+  <router-outlet></router-outlet>
+</div>
+<div class="router-outlet-second p-md">
+  <router-outlet name="second"></router-outlet>
+</div>
+<div class="router-outlet-second p-md">
+  <router-outlet name="third"></router-outlet>
+</div>
