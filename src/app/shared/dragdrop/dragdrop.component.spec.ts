@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {LazyModuleCompComponent} from './lazy-module-comp.component';
+import {DragdropComponent} from './dragdrop.component';
 
-describe('LazyModuleCompComponent', () => {
-  let component: LazyModuleCompComponent;
-  let fixture: ComponentFixture<LazyModuleCompComponent>;
+describe('DragdropComponent', () => {
+  let component: DragdropComponent;
+  let fixture: ComponentFixture<DragdropComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LazyModuleCompComponent ]
+      declarations: [DragdropComponent]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LazyModuleCompComponent);
+    fixture = TestBed.createComponent(DragdropComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

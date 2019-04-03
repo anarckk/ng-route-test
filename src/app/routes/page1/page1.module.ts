@@ -3,17 +3,17 @@ import {CommonModule} from '@angular/common';
 import {Page1Component} from './page1.component';
 import {RouterModule, Routes} from "@angular/router";
 import {SharedModule} from "../../shared/shared.module";
-import {MergeMapComponent} from "./merge-map/merge-map.component";
 import {ResolveDataComponent} from "./resolve-data/resolve-data.component";
 import {ResolveDataService} from "../../service/resolve-data.service";
 import {DataListComponent} from "./data-list/data-list.component";
 import {DataDetailComponent} from "./data-detail/data-detail.component";
 import {DataDetailResolverService} from "./data-detail/data-detail-resolver.service";
-import {DragDropComponent} from "./drag-drop/drag-drop.component";
 import {SecondRouterCompComponent} from "./routes2/second-router-comp/second-router-comp.component";
 import {DataList2Component} from "./routes2/data-list/data-list.component";
 import {DataDetail2Component} from "./routes2/data-detail/data-detail.component";
 import {PageNotFoundComponent} from "../../shared/page-not-found/page-not-found.component";
+import {WithLatestFromComponent} from "../../shared/with-latest-from/with-latest-from.component";
+import {MergeMapComponent} from "../../shared/merge-map/merge-map.component";
 
 const page1Routes: Routes = [
   {
@@ -49,8 +49,8 @@ const page1Routes: Routes = [
         }
       },
       {
-        path: 'drag',
-        component: DragDropComponent
+        path: 'withLatestFrom',
+        component: WithLatestFromComponent
       },
       {
         path: 'lazy-module',
@@ -82,13 +82,11 @@ const page1Routes: Routes = [
 const page1_export_components = [
   Page1Component,
   SecondRouterCompComponent,
-  MergeMapComponent,
   ResolveDataComponent,
   DataListComponent,
   DataDetailComponent,
   DataList2Component,
   DataDetail2Component,
-  DragDropComponent,
 ];
 
 @NgModule({

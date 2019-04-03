@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {o2oRxOpLog} from '../../merge-map/merge-map.component';
 
 @Component({
   selector: 'app-data-detail2',
@@ -19,7 +18,7 @@ export class DataDetail2Component implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log('data-detail2 init.');
-    this.sub = this.route.paramMap.pipe(o2oRxOpLog('route.paramMap')).subscribe((params: ParamMap) => {
+    this.sub = this.route.paramMap.subscribe((params: ParamMap) => {
       this.i = params.get('index');
     });
   }

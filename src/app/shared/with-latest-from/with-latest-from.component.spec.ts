@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {DragDropComponent} from './drag-drop.component';
+import {WithLatestFromComponent} from './with-latest-from.component';
 
-describe('DragDropComponent', () => {
-  let component: DragDropComponent;
-  let fixture: ComponentFixture<DragDropComponent>;
+describe('WithLatestFromComponent', () => {
+  let component: WithLatestFromComponent;
+  let fixture: ComponentFixture<WithLatestFromComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DragDropComponent]
+      declarations: [WithLatestFromComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DragDropComponent);
+    fixture = TestBed.createComponent(WithLatestFromComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

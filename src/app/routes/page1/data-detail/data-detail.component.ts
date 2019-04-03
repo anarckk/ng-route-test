@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {o2oRxOpLog} from '../merge-map/merge-map.component';
 import {Subject} from 'rxjs';
 import {retry, takeUntil} from 'rxjs/operators';
 import {InputData} from '../data-list/input-data';
@@ -19,14 +18,15 @@ export class DataDetailComponent implements OnInit, OnDestroy, ReuseComponentInt
 
   constructor(
     private route: ActivatedRoute
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     console.log('data-detail init.');
-    this.route.paramMap.pipe(o2oRxOpLog('data-detail route.paramMap'), retry(), takeUntil(this.stop$)).subscribe((params: ParamMap) => {
+    this.route.paramMap.pipe(retry(), takeUntil(this.stop$)).subscribe((params: ParamMap) => {
       this.i = params.get('index');
     });
-    this.route.data.pipe(o2oRxOpLog('data-detail route data'), retry(), takeUntil(this.stop$)).subscribe((data: {
+    this.route.data.pipe(retry(), takeUntil(this.stop$)).subscribe((data: {
       detail: InputData
     }) => {
       this.detail = data.detail;
