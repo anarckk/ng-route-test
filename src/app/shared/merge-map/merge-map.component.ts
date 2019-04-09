@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {interval, Subject} from "rxjs";
 import {delay, mergeMap, takeUntil} from "rxjs/operators";
+import {rxDebug} from "ngx-rx";
 
 @Component({
   selector: 'app-merge-map',
@@ -18,6 +19,7 @@ export class MergeMapComponent implements OnInit, OnDestroy {
     console.log('merge-map ng init.');
     this.click$.pipe(
       mergeMap(() => interval(1000)),
+      rxDebug('merge-map'),
       delay(1000),
       takeUntil(this.stop$)
     ).subscribe();

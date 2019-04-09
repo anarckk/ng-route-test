@@ -6,7 +6,7 @@ import {SharedModule} from "../shared/shared.module";
 
 const routes: Routes = [
   {path: 'page1', loadChildren: './page1/page1.module#Page1Module'},
-  // {path: 'page2', loadChildren: ''},
+  {path: 'page2', loadChildren: './page2/page2.module#Page2Module'},
   {path: '', redirectTo: 'page1', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
 ];

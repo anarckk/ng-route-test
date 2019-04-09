@@ -76,7 +76,8 @@ const page1Routes: Routes = [
       {path: 'page-not-found', component: PageNotFoundComponent},
       {path: '', redirectTo: 'merge-map', pathMatch: 'full'},
     ]
-  }
+  },
+  {path: '', redirectTo: 'page', pathMatch: 'full'}
 ];
 
 const page1_export_components = [
@@ -98,9 +99,6 @@ const page1_export_components = [
     RouterModule.forChild(page1Routes),
     SharedModule,
     RouterModule,
-  ],
-  exports: [
-    ...page1_export_components
   ]
 })
 export class Page1Module {
