@@ -6,20 +6,14 @@ import {Component, OnInit} from '@angular/core';
 @Component({
   selector: 'page-2',
   template: `
-    page2 work!
-    <button (click)="click()">page1</button>
+    <app-cus-dragdrop></app-cus-dragdrop>
   `
 })
 export class Page2Component implements OnInit {
   constructor(
-    // private router: Router,
   ) {
   }
 
   ngOnInit() {
-  }
-
-  click() {
-
   }
 }
