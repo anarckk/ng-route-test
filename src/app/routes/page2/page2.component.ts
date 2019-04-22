@@ -2,29 +2,33 @@
  * Created by kkcra on 2019/4/3
  */
 import {Component, OnInit} from '@angular/core';
+import {HorizontalDragdropService} from "../../shared/horizontal-dragdrop/horizontal-dragdrop.service";
 import {HorizontalDragDrop} from "../../shared/horizontal-dragdrop/horizantal-dragdrop.namespace";
-import IData = HorizontalDragDrop.IData;
+import IDropConfig = HorizontalDragDrop.IDropConfig;
 
 @Component({
   selector: 'page-2',
   template: `
-    <app-horizontal-dragdrop #comp1 [otherDropList]="[comp2.cdkDropList]" [data]="data"></app-horizontal-dragdrop>
-    <app-horizontal-dragdrop #comp2 [otherDropList]="[comp1.cdkDropList]" [data]="data1"></app-horizontal-dragdrop>
-  `
+    <app-horizontal-dragdrop [data]="data"></app-horizontal-dragdrop>
+    <app-horizontal-dragdrop [data]="data1"></app-horizontal-dragdrop>
+  `,
+  providers: [
+    HorizontalDragdropService,
+  ]
 })
 export class Page2Component implements OnInit {
-  data: IData = {
+  data: IDropConfig = {
     group: 'group0',
-    list: [
+    dragList: [
       {
         txt: 'A00', children: {
           group: 'group01',
-          list: [
+          dragList: [
             {txt: 'A001'},
             {
               txt: 'A002', children: {
                 group: 'group012',
-                list: [
+                dragList: [
                   {txt: 'A0021'},
                   {txt: 'A0022'},
                   {txt: 'A0023'},
@@ -41,9 +45,9 @@ export class Page2Component implements OnInit {
       {txt: 'A04'},
     ],
   };
-  data1: IData = {
+  data1: IDropConfig = {
     group: 'group1',
-    list: [
+    dragList: [
       {txt: 'B00'},
       {txt: 'B01'},
       {txt: 'B02'},

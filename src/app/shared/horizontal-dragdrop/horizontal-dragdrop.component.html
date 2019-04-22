@@ -1,17 +1,17 @@
-<div class="drag-top">{{data.group || 'default group'}}</div>
+<div class="drag-top">{{data.group || 'default group'}}{{data.isEnter}}</div>
 <div cdkDropList
      cdkDropListOrientation="horizontal"
-     [cdkDropListConnectedTo]="otherDropList"
-     (cdkDropListEntered)="dropEnter($event)"
-     (cdkDropListExited)="dropExit($event)"
+     [cdkDropListData]="data"
+     [cdkDropListConnectedTo]="connectTo"
+     [cdkDropListEnterPredicate]="enterPredicate"
      class="example-list"
      (cdkDropListDropped)="drop($event)">
-  <div class="example-box" *ngFor="let li of data.list" cdkDrag>
+  <div *ngFor="let li of data.dragList" [cdkDragData]="li"
+       cdkDrag class="example-box">
     <div>
       <div>{{li.txt}}</div>
       <div>
-        <app-horizontal-dragdrop *ngIf="li.children"
-                                 [parentComp]="myself"
+        <app-horizontal-dragdrop *ngIf="li.children" [parentComp]="myself"
                                  [data]="li.children"></app-horizontal-dragdrop>
       </div>
     </div>

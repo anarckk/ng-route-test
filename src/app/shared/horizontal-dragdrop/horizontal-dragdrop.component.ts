@@ -1,47 +1,62 @@
-import {Component, Input, OnInit, ViewChild, ViewChildren} from '@angular/core';
-import {CdkDragDrop, CdkDragExit, CdkDropList, moveItemInArray} from "@angular/cdk/drag-drop";
-import {CdkDragEnter} from "@angular/cdk/typings/esm5/drag-drop";
+import {Component, HostListener, Input, OnDestroy, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import {CdkDragDrop, CdkDropList, moveItemInArray} from "@angular/cdk/drag-drop";
+import {CdkDrag} from "@angular/cdk/typings/esm5/drag-drop";
+import {HorizontalDragdropService} from "./horizontal-dragdrop.service";
 import {HorizontalDragDrop} from "./horizantal-dragdrop.namespace";
-import IData = HorizontalDragDrop.IData;
+import IDropConfig = HorizontalDragDrop.IDropConfig;
+import IDragConfig = HorizontalDragDrop.IDragConfig;
+import isInChild = HorizontalDragDrop.isInChild;
 
 @Component({
   selector: 'app-horizontal-dragdrop',
   templateUrl: './horizontal-dragdrop.component.html',
-  styleUrls: ['./horizontal-dragdrop.component.css']
+  styleUrls: ['./horizontal-dragdrop.component.css'],
 })
-export class HorizontalDragdropComponent implements OnInit {
-  @Input() parentComp: HorizontalDragdropComponent | undefined;
-  @Input() otherDropList: CdkDropList[] = [];
-  @ViewChild(CdkDropList) cdkDropList: CdkDropList;
-  @ViewChildren(HorizontalDragdropComponent) childCompList: HorizontalDragdropComponent[] = [];
-  @Input() data: IData;
-
-  get connectDropList(): CdkDropList[] {
-    return [...this.otherDropList, ...this.childCompList.map(comp => comp.cdkDropList)]
-      .filter(drop => drop !== this.cdkDropList);
-  }
-
+export class HorizontalDragdropComponent implements OnInit, OnDestroy {
   get myself(): HorizontalDragdropComponent {
     return this;
   }
 
-  constructor() {
+  get connectTo(): CdkDropList[] {
+    return this.dragdropService.cdkDropListArray.filter(r => r !== this.cdkDropList);
+  }
+
+  enterPredicate = (drag: CdkDrag<IDragConfig>, drop: CdkDropList<IDropConfig>) => {
+    const result = drop.data.isEnter && !isInChild(drop.data);
+    if (result) {
+      console.log(drop.data.group);
+    }
+    return result;
+  };
+  @Input() data: IDropConfig;
+  @Input() parentComp: HorizontalDragdropComponent | undefined;
+  @ViewChild(CdkDropList) cdkDropList: CdkDropList;
+  @ViewChildren(HorizontalDragdropComponent) childCompList: HorizontalDragdropComponent[] = [];
+
+  constructor(
+    private dragdropService: HorizontalDragdropService,
+  ) {
   }
 
   ngOnInit() {
-    if (this.parentComp)
-      console.log(this.data.group, this.parentComp.data.group);
+    this.dragdropService.cdkDropListArray.push(this.cdkDropList);
   }
 
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.data.list, event.previousIndex, event.currentIndex);
+  ngOnDestroy(): void {
+    this.dragdropService.cdkDropListArray.splice(this.dragdropService.cdkDropListArray.indexOf(this.cdkDropList), 1);
   }
 
-  dropEnter($event: CdkDragEnter<any>) {
-    console.log(this.data.group, 'drop enter', $event);
+  drop(event: CdkDragDrop<any>) {
+    moveItemInArray(this.data.dragList, event.previousIndex, event.currentIndex);
   }
 
-  dropExit($event: CdkDragExit<any>) {
-    console.log(this.data.group, 'drop exit', $event);
+  @HostListener('mouseenter')
+  mouseEnter() {
+    this.data.isEnter = true;
+  }
+
+  @HostListener('mouseleave')
+  mouseLeave() {
+    this.data.isEnter = false;
   }
 }

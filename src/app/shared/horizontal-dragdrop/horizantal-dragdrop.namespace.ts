@@ -2,11 +2,22 @@
  * Created by kkcra on 2019/4/11
  */
 export namespace HorizontalDragDrop {
-  export interface IData {
+  export interface IDragConfig {
+    txt: string,
+    children?: IDropConfig
+  }
+
+  export interface IDropConfig {
     group?: string,
-    list: {
-      txt: string,
-      children?: IData
-    }[]
+    isEnter?: boolean,
+    dragList: IDragConfig[]
+  }
+
+  export function isInChild(dropConfig: IDropConfig) {
+    if (dropConfig.isEnter) {
+      return dropConfig.dragList.some(drag => drag.children && (drag.children.isEnter || isInChild(drag.children)));
+    } else {
+      return false;
+    }
   }
 }
