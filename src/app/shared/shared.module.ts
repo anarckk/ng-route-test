@@ -7,6 +7,7 @@ import {DragdropComponent} from './dragdrop/dragdrop.component';
 import {WithLatestFromComponent} from './with-latest-from/with-latest-from.component';
 import {MergeMapComponent} from "./merge-map/merge-map.component";
 import {CusDragdropComponent} from './cus-dragdrop/cus-dragdrop.component';
+import {HorizontalDragdropComponent} from './horizontal-dragdrop/horizontal-dragdrop.component';
 
 const export_module = [
   FormsModule,
@@ -17,12 +18,13 @@ const export_components = [
   DragdropComponent,
   WithLatestFromComponent,
   MergeMapComponent,
-  CusDragdropComponent,
+  HorizontalDragdropComponent,
 ];
 
 @NgModule({
   declarations: [
     ...export_components,
+    CusDragdropComponent,
   ],
   imports: [
     CommonModule,
