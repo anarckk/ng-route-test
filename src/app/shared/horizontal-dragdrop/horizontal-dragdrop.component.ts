@@ -1,5 +1,14 @@
-import {Component, HostListener, Input, OnDestroy, OnInit, ViewChild, ViewChildren} from '@angular/core';
-import {CdkDragDrop, CdkDropList, moveItemInArray} from "@angular/cdk/drag-drop";
+import {
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
+import {CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {CdkDrag} from "@angular/cdk/typings/esm5/drag-drop";
 import {HorizontalDragdropService} from "./horizontal-dragdrop.service";
 import {HorizontalDragDrop} from "./horizantal-dragdrop.namespace";
@@ -21,13 +30,7 @@ export class HorizontalDragdropComponent implements OnInit, OnDestroy {
     return this.dragdropService.cdkDropListArray.filter(r => r !== this.cdkDropList);
   }
 
-  enterPredicate = (drag: CdkDrag<IDragConfig>, drop: CdkDropList<IDropConfig>) => {
-    const result = drop.data.isEnter && !isInChild(drop.data);
-    if (result) {
-      console.log(drop.data.group);
-    }
-    return result;
-  };
+  enterPredicate = (drag: CdkDrag<IDragConfig>, drop: CdkDropList<IDropConfig>) => drop.data.isEnter && !isInChild(drop.data);
   @Input() data: IDropConfig;
   @Input() parentComp: HorizontalDragdropComponent | undefined;
   @ViewChild(CdkDropList) cdkDropList: CdkDropList;
@@ -35,6 +38,7 @@ export class HorizontalDragdropComponent implements OnInit, OnDestroy {
 
   constructor(
     private dragdropService: HorizontalDragdropService,
+    private cd: ChangeDetectorRef,
   ) {
   }
 
@@ -46,8 +50,17 @@ export class HorizontalDragdropComponent implements OnInit, OnDestroy {
     this.dragdropService.cdkDropListArray.splice(this.dragdropService.cdkDropListArray.indexOf(this.cdkDropList), 1);
   }
 
-  drop(event: CdkDragDrop<any>) {
-    moveItemInArray(this.data.dragList, event.previousIndex, event.currentIndex);
+  drop(event: CdkDragDrop<IDropConfig>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data.dragList, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data.dragList,
+        event.container.data.dragList,
+        event.previousIndex,
+        event.currentIndex);
+    }
+    this.cd.markForCheck();
+    this.cd.detectChanges();
   }
 
   @HostListener('mouseenter')
