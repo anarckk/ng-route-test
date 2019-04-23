@@ -1,13 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  HostListener,
-  Input,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-  ViewChildren
-} from '@angular/core';
+import {ChangeDetectorRef, Component, HostListener, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {CdkDrag} from "@angular/cdk/typings/esm5/drag-drop";
 import {HorizontalDragdropService} from "./horizontal-dragdrop.service";
@@ -22,19 +13,13 @@ import isInChild = HorizontalDragDrop.isInChild;
   styleUrls: ['./horizontal-dragdrop.component.css'],
 })
 export class HorizontalDragdropComponent implements OnInit, OnDestroy {
-  get myself(): HorizontalDragdropComponent {
-    return this;
-  }
-
   get connectTo(): CdkDropList[] {
     return this.dragdropService.cdkDropListArray.filter(r => r !== this.cdkDropList);
   }
 
   enterPredicate = (drag: CdkDrag<IDragConfig>, drop: CdkDropList<IDropConfig>) => drop.data.isEnter && !isInChild(drop.data);
   @Input() data: IDropConfig;
-  @Input() parentComp: HorizontalDragdropComponent | undefined;
   @ViewChild(CdkDropList) cdkDropList: CdkDropList;
-  @ViewChildren(HorizontalDragdropComponent) childCompList: HorizontalDragdropComponent[] = [];
 
   constructor(
     private dragdropService: HorizontalDragdropService,
