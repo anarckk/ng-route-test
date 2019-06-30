@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {PageNotFoundComponent} from "../shared/page-not-found/page-not-found.component";
 import {SharedModule} from "../shared/shared.module";
+import { Page3Component } from './page3/page3.component';
 
 const routes: Routes = [
   {path: 'page1', loadChildren: './page1/page1.module#Page1Module'},
@@ -17,7 +18,7 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forRoot(routes, {useHash: true, scrollPositionRestoration: 'disabled'}),
   ],
-  declarations: [],
+  declarations: [Page3Component],
   exports: [
     RouterModule
   ]
